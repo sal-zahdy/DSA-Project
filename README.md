@@ -25,11 +25,13 @@ Used for the primary studentDB container to store Student objects.
 Why It Was Chosen
 Provides efficient O(1) access to elements by index.
 Dynamically resizes as new students are added.
-Suitable for managing a growing list of student records without requiring a fixed size. 2. struct Student
+Suitable for managing a growing list of student records without requiring a fixed size. 
+
+2. struct Student
 
 A custom structure used to group related student data into a single entity.
 
-Attributes
+Attributes:
 Student ID
 Student Name
 Vector of Grades
@@ -37,7 +39,8 @@ Why It Was Chosen
 Improves code organization and readability.
 Keeps all student-related information together.
 Simplifies data handling throughout the program.
-Implemented Features
+
+Implemented Features:
 Student Management
 Add new students
 Remove existing students
@@ -100,14 +103,17 @@ g++ main.cpp StudentManager.cpp reports.cpp grade_logic.cpp file_manager.cpp -o 
 If using SFML, compile with:
 
 g++ main.cpp StudentManager.cpp reports.cpp grade_logic.cpp file_manager.cpp -o StudentSystem -lsfml-graphics -lsfml-window -lsfml-system
+
 Execution
 Windows
 StudentSystem.exe
 Linux / Mac
 ./StudentSystem
+
 AI Usage Declaration
 AI Tools Used
 ChatGPT
+
 Purpose of AI Usage
 
 AI tools were used for:
