@@ -21,4 +21,6 @@ void displayAllStudents();
 
 vector<Student>& getStudentDB();
 
+void searchStudentByName(string targetName);
+
 #endif // STUDENTMANAGER_H_INCLUDED
