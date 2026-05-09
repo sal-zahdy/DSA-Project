@@ -1,10 +1,13 @@
 Student Management System
+
 Group Members and IDs
-Member 1: [Insert Name] – [Insert ID]
-Member 2: [Insert Name] – [Insert ID]
-Member 3: [Insert Name] – [Insert ID]
-Member 4: [Insert Name] – [Insert ID]
-Member 5: [Insert Name] – [Insert ID]
+
+Salma Abdulaziz Ahmed-2300426
+Mariam Tamer Shafiek-2300507
+Rewan Abdo Mohamed-Ameen 2300239
+Malak Mohammed Ali-2300429
+Doaa Mohamed-2300390
+
 Project Description
 
 The Student Management System is a C++ application designed to manage and analyze academic records. The system allows users to store student information, manage multiple grades for each student, and generate detailed academic performance reports.
