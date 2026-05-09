@@ -1,10 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "student.h"
 #include "StudentManager.h"
-#include "file_manager.h"
-
-vector<Student> studentDB;
 
 using namespace std;
 
