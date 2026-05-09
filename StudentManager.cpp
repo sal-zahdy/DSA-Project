@@ -4,11 +4,42 @@
 
 using namespace std;
 
-vector<Student> studentDB;
+// Search Student By Name
+void searchStudentByName(string targetName)
+{
+    bool found = false;
+
+    for (const auto& s : studentDB)
+    {
+        if (s.name == targetName)
+        {
+            cout << "\nStudent Found:\n";
+            cout << "ID: " << s.id << "\n";
+            cout << "Name: " << s.name << "\n";
+
+            cout << "Grades: ";
+
+            for (float g : s.grades)
+            {
+                cout << g << " ";
+            }
+
+            cout << "\n";
+
+            found = true;
+        }
+    }
+
+    if (!found)
+    {
+        cout << "Student not found.\n";
+    }
+}
+
 
 int findStudentIndex(int id)
 {
-    for (int i = 0; i < studentDB.size(); i++)
+    for (int i = 0; i < (int)studentDB.size(); i++)
     {
         if (studentDB[i].id == id)
         {

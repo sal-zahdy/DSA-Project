@@ -53,7 +53,7 @@ void displayAllStudentsTable()
      << setw(6)  << "ID"
      << setw(20) << "Name"
      << setw(12) << "Average"
-     << setw(8)  << "Grade"
+     //<< setw(8)  << "Grade"
      << "\n";
 
     cout << "-------------------------------------\n";

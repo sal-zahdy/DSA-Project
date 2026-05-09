@@ -32,7 +32,7 @@ void updateStudentGrades(int studentID, const vector<float>& newGrades) {
     bool found = false;
 
     // Linear search for the student
-    for (int i = 0; i < db.size(); ++i) {
+    for (int i = 0; i < (int)db.size(); ++i) {
         if (db[i].id == studentID) {
             db[i].grades = newGrades;
             cout << "Grades updated successfully for student ID " << studentID << ".\n";
