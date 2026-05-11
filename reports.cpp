@@ -5,6 +5,7 @@
 #include <stack>
 #include <queue>
 #include <algorithm>
+#include <cctype>
 #include "reports.h"
 #include "grade_logic.h"
 
@@ -75,12 +76,18 @@ int binarySearchByID(const vector<Student>& sortedList, int targetID)
 // Binary search for a student Name
 int binarySearchByName(const vector<Student>& sortedList, string targetName)
 {
+    string lowerTarget = targetName;
+    for (char& c : lowerTarget) c = tolower(c);
+
     int left = 0, right = sortedList.size() - 1;
     while (left <= right)
     {
         int mid = left + (right - left) / 2;
-        if (sortedList[mid].name == targetName) return mid;
-        if (sortedList[mid].name < targetName) left = mid + 1;
+        string lowerMid = sortedList[mid].name;
+        for (char& c : lowerMid) c = tolower(c);
+
+        if (lowerMid == lowerTarget) return mid;
+        if (lowerMid < lowerTarget) left = mid + 1;
         else right = mid - 1;
     }
     return -1;
@@ -176,18 +183,24 @@ void displayRankedStudents()
 // Displays the student with the highest average
 void displayTopStudent()
 {
-    if (getStudentDB().empty())
-    {
-        cout << "\nNo students in the system.\n";
-        return;
+    if (getStudentDB().empty()) { cout << "\nNo students in the system.\n"; return; }
+    
+    queue<Student> q;
+    for (const auto& s : getStudentDB()) q.push(s);
+    
+    Student top = q.front();
+    while (!q.empty()) {
+        if (calculateAverage(q.front().grades) > calculateAverage(top.grades))
+            top = q.front();
+        q.pop();
     }
-    vector<Student> sorted = sortStudentsByAverage(getStudentDB());
-    float avg = calculateAverage(sorted[0].grades);
+    
+    float avg = calculateAverage(top.grades);
     char letter = calculateLetterGrade(avg);
     cout << "\n========== Top Performer ==========\n";
     cout << left << setw(8) << "ID" << setw(20) << "Name" << setw(10) << "Avg" << setw(8) << "Grade" << "\n";
     cout << "-------------------------------------------------\n";
-    cout << left << setw(8) << sorted[0].id << setw(20) << sorted[0].name << setw(10) << fixed << setprecision(2) << avg << setw(8) << letter << "\n";
+    cout << left << setw(8) << top.id << setw(20) << top.name << setw(10) << fixed << setprecision(2) << avg << setw(8) << letter << "\n";
 }
 
 // Displays the student with the lowest average

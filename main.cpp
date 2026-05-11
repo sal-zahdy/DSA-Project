@@ -468,6 +468,7 @@ int main()
             if (id <= 0) toast.show("invalid id", Pal::danger);
             else if (name.empty()) toast.show("empty name", Pal::danger);
             else if (!err.empty()) toast.show(err, Pal::danger);
+            else if (findStudentIndex(id) != -1) toast.show("ID already exists", Pal::danger);
             else
             {
                 addStudent(id, name, grades);
