@@ -18,7 +18,7 @@ The project also includes a graphical user interface developed using SFML to imp
 
 Selected Data Structures
 
-1. std::vector (Dynamic Array)
+1. vector (Dynamic Array)
 
 Used for the primary studentDB container to store Student objects.
 
@@ -35,6 +35,7 @@ Attributes:
 Student ID
 Student Name
 Vector of Grades
+
 Why It Was Chosen
 Improves code organization and readability.
 Keeps all student-related information together.
@@ -46,35 +47,28 @@ Add new students
 Remove existing students
 Update student information
 Manage multiple grades per student
-Advanced Search
 Search students by unique ID
 Search students by name
-Grade Analysis
 Class Average
 
-Calculates the overall class average.
-
-Performance Tracking
+Performance Tracking:
 Identifies top-performing students
-Identifies lowest-performing students
-Pass/Fail Summary
+Identifies the lowest-performing students
 
+Pass/Fail Summary:
 Displays the number of students who passed or failed based on a 50% threshold.
 
-Student Ranking
-
+Student Ranking:
 Displays all students ranked according to their average grades.
 
-Data Persistence
+Data Persistence:
 Automatically loads saved records at startup
 Saves updated records into a local file
-
 This ensures that all data remains available between sessions.
 
 Input Validation
 
 The system validates:
-
 Numeric student IDs
 Grade ranges between 0 and 100
 Correct menu selections
@@ -86,14 +80,16 @@ C++
 SFML (Simple and Fast Multimedia Library)
 File Handling
 Object-Oriented Programming Concepts
-Dynamic Arrays (std::vector)
+Dynamic Arrays (vector)
+
 How to Compile and Run
-Prerequisites
+Prerequisites:
 
 Ensure that you have:
 
 A C++ compiler installed (such as g++)
-SFML library properly installed and configured
+SFML library is properly installed and configured
+
 Compilation
 
 Open the terminal inside the project directory and run:
@@ -124,4 +120,4 @@ Assistance while implementing the SFML graphical user interface
 Improving code organization and documentation
 General programming guidance
 
-All final implementation, testing, and integration were completed by the project team.
+The project team completed all final implementation, testing, and integration.
