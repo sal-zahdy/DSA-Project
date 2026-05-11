@@ -16,10 +16,8 @@ struct Student {
         : id(id), name(name), grades(grades) {}
 };
 
-// Global database (defined in StudentManager.cpp)
 extern vector<Student> studentDB;
 
-// Function declarations
 int findStudentIndex(int id);
 
 void addStudent(int id, string name, vector<float> grades);

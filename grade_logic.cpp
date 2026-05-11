@@ -1,28 +1,31 @@
 #include <iostream>
 #include <vector>
 #include "grade_logic.h"
-#include "student.h"
-#include "reports.h" // For getStudentDB()
+#include "reports.h"
+
 
 using namespace std;
 
-
 // Update/set grade function for a student by ID
-// Handles edge cases: invalid ID, empty grades, invalid grade values, and student not found.
-void updateStudentGrades(int studentID, const vector<float>& newGrades) {
-    if (studentID <= 0) {
+void updateStudentGrades(int studentID, const vector<float>& newGrades)
+{
+    if (studentID <= 0)
+    {
         cout << "Error: Invalid student ID.\n";
         return;
     }
 
-    if (newGrades.empty()) {
+    if (newGrades.empty())
+    {
         cout << "Error: Cannot update with empty grades.\n";
         return;
     }
 
     // Check for invalid grade values
-    for (float grade : newGrades) {
-        if (grade < 0.0f || grade > 100.0f) {
+    for (float grade : newGrades)
+    {
+        if (grade < 0.0f || grade > 100.0f)
+        {
             cout << "Error: Invalid grade input. Grades must be between 0 and 100.\n";
             return;
         }
@@ -32,8 +35,10 @@ void updateStudentGrades(int studentID, const vector<float>& newGrades) {
     bool found = false;
 
     // Linear search for the student
-    for (int i = 0; i < (int)db.size(); ++i) {
-        if (db[i].id == studentID) {
+    for (int i = 0; i < (int)db.size(); ++i)
+    {
+        if (db[i].id == studentID)
+        {
             db[i].grades = newGrades;
             cout << "Grades updated successfully for student ID " << studentID << ".\n";
             found = true;
@@ -41,13 +46,15 @@ void updateStudentGrades(int studentID, const vector<float>& newGrades) {
         }
     }
 
-    if (!found) {
+    if (!found)
+    {
         cout << "Error: Student with ID " << studentID << " not found.\n";
     }
 }
 
 // Letter grade calculation with clear grading thresholds
-char calculateLetterGrade(float average) {
+char calculateLetterGrade(float average)
+{
     if (average >= 90.0f) return 'A';
     else if (average >= 80.0f) return 'B';
     else if (average >= 70.0f) return 'C';
@@ -56,22 +63,30 @@ char calculateLetterGrade(float average) {
 }
 
 // GPA calculation based on letter grade
-int calculateGPA(char letterGrade) {
-    switch (letterGrade) {
-        case 'A': return 4;
-        case 'B': return 3;
-        case 'C': return 2;
-        case 'D': return 1;
-        case 'F': return 0;
-        default: return 0;
+int calculateGPA(char letterGrade)
+{
+    switch (letterGrade)
+    {
+    case 'A':
+        return 4;
+    case 'B':
+        return 3;
+    case 'C':
+        return 2;
+    case 'D':
+        return 1;
+    case 'F':
+        return 0;
+    default:
+        return 0;
     }
 }
 
 // Pass/fail rule based on 50 threshold
-bool isPass(float average) {
+bool isPass(float average)
+{
     const float PASS_THRESHOLD = 50.0f;
     return average >= PASS_THRESHOLD;
 }
-
 
 

@@ -1,17 +1,12 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-
 #include "StudentManager.h"
 #include "file_manager.h"
 
 using namespace std;
 
-// --------------------------------------------------
 // Save all students to file
-// Format:
-// id,name,grade1,grade2,grade3...
-// --------------------------------------------------
 void saveToFile()
 {
     ofstream file("students.txt");
@@ -40,9 +35,7 @@ void saveToFile()
     cout << "Data saved successfully.\n";
 }
 
-// --------------------------------------------------
 // Load students from file
-// --------------------------------------------------
 void loadFromFile()
 {
     ifstream file("students.txt");
@@ -54,7 +47,7 @@ void loadFromFile()
     }
 
     string line;
-
+    int count=0;
     while (getline(file, line))
     {
         stringstream ss(line);
@@ -75,9 +68,10 @@ void loadFromFile()
         }
 
         addStudent(id, name, grades);
+        count++;
     }
 
     file.close();
 
-    cout << "Data loaded successfully.\n";
+    cout << "Loaded " << count << " students from database.\n";
 }

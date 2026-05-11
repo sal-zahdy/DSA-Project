@@ -1,8 +1,11 @@
 #include <iostream>
 #include <vector>
 #include "StudentManager.h"
+#include "file_manager.h"
 
 using namespace std;
+
+vector<Student> studentDB;
 
 // Search Student By Name
 void searchStudentByName(string targetName)
@@ -36,7 +39,7 @@ void searchStudentByName(string targetName)
     }
 }
 
-
+//find student by id
 int findStudentIndex(int id)
 {
     for (int i = 0; i < (int)studentDB.size(); i++)
@@ -49,6 +52,7 @@ int findStudentIndex(int id)
     return -1; // not found
 }
 
+//adds student to database
 void addStudent(int id, string name, vector<float> grades)
 {
     if (findStudentIndex(id) != -1)
@@ -82,8 +86,10 @@ void addStudent(int id, string name, vector<float> grades)
     studentDB.push_back(newStudent);
 
     cout << "Student added successfully.\n";
+
 }
 
+//removes the student
 void removeStudent(int id)
 {
     int index = findStudentIndex(id);
@@ -99,17 +105,13 @@ void removeStudent(int id)
     cout << "Student removed successfully.\n";
 }
 
-void displayAllStudents() {
+//display all student in data base
+void displayAllStudents()
+{
     cout << "\n--- Student List ---\n";
-    for (const auto& s : studentDB) {
+    for (const auto& s : studentDB)
+    {
         cout << "ID: " << s.id << ", Name: " << s.name << "\n";
     }
 }
 
-
-//DOAA
-// Getter function: provides read-only access to studentDB for other files
-vector<Student>& getStudentDB()
-{
-    return studentDB;
-}
